@@ -2,7 +2,13 @@
 <html>
 <body>
 
-  <textarea id="rawdata">
+  <!-- Name: Sjoerd Zagema
+   Student number: 12195677
+   Date: 22-04-2018
+   The graph needs some adjustments: The origin to the left down corner and the revers of the y-axis
+   I tried several methods but without result.
+   -->
+  <textarea id="rawdata" style= "display:none;" >
   #date,TG
   20170101,    5
   20170102,   30
@@ -372,53 +378,47 @@
 
   </textarea>
 
+<div style= 'display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;' >
+<h3 id='kop'>Welkom, klik op één van beide knoppen.</h3>
 
 
-
-<canvas id = "Canvas1" width="600" height="600">
+<canvas id = "Canvas1" width="600" height="600" >
 
 </canvas>
 
 <button id="button1">localdata</button>
 <button id="button2">remotedata</button>
-
+</div>
 <script>
-/*
-xmlhttp.open("POST", "KNMi_data.txt", false);
-xmlhttp.send();
- var raw= xmlhttp.responseText; alert(raw); */
-  
+//creating button1>localdata, when clicked text changes
+document.getElementById("button1").onclick = function() {
+  var LocalData = document.getElementById("rawdata").value;
+  grafiek(LocalData);
+  document.getElementById("kop").innerHTML='De gemiddelde temperatuur in 2017 de Bild.';
+}
 
-
+//creating button2>remotedata, when clicked text changes
 document.getElementById("button2").onclick = function() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        //  document.getElementById("demo").innerHTML =
-       this.responseText;
-//  var Nielsremote = this.responseText;
-     }
-  };
-  xhttp.open("GET", "KNMi_data_2016.txt", true);
-  xhttp.send();
-//  grafiek(Nielsremote);
-};
-/*
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          //  document.getElementById("demo").innerHTML =
-        //    this.responseText;
- alert(this.responseText);
-       }
-    };
-    xhttp.open("GET", "KNMi_data_2016.txt", true);
-    xhttp.send();
-*/
 
-// console.log(Niels)
-//document.getElementById(2)
-// https://stackoverflow.com/questions/33155999/converting-a-csv-file-into-a-2d-array
+var RemoteData = this.responseText;
+} else {alert('No result, could be cross origen problem');}
+  };
+  xhttp.open("POST", "KNMi_data_2016.txt", true);
+  xhttp.send();
+  grafiek(RemoteData);
+  document.getElementById("kop").innerHTML='De gemiddelde temperatuur in 2016 de Bild.';
+};
+
+
+// function obtained from https://stackoverflow.com/questions/33155999/converting-a-csv-file-into-a-2d-array
+
 function csvToArray (csv) {
     rows = csv.split("\n");
 
@@ -427,32 +427,28 @@ function csvToArray (csv) {
     });
 };
 
-// Hard-coded for brevity, but you can set this variable with FileReader
-
+// function to load data dynamically
 function grafiek(dataset){
 var array = csvToArray(dataset);
 // var array=[[100,1000],[150,2000],[200,3000],[400,4000]];
 // console.log(array[2][1]);
 
 var ctx = document.getElementById("Canvas1").getContext("2d");
-//ctx.translate(0, canvas.height);
-//ctx.scale(-1, 1);
 
-var transform = createTransform([0,50],[0,50] ); // schaalfactor voor screen; nog niet dynamisch gezet
+// schaalfactor voor screen
+var transform = createTransform([0,50],[0,50] );
 console.log('Dit is de voorbeeld transformatie van ' +array[364][1]/10);
 
 
- // ctx.translate(0, canvas.height);ctx.scale(1, -1);
+// ctx.translate(0, canvas.height);ctx.scale(1, -1);
+// The graph needs some adjustments: The origin to the left down corner and the revers of the y-axis
+// I tried several methods but without result.
 
+// invoke line to method.
 ctx.beginPath();
-
 for (var i =2;i <array.length; i++)
-{ /*
-  if(i>1){ctx.moveTo(transform(i-1),transform(array[i-1][1])/10);}else{
-    ctx.moveTo(0,transform(array[i-1][1])/10);
-  } */
-  //ctx.moveTo(array[i][0],array[i][1]);
-  ctx.lineTo(transform(i),array[i][1]); //console.log(transform(array[i][1]));
+{
+  ctx.lineTo(transform(i),array[i][1]);
   ctx.stroke();
 }
 }
@@ -478,16 +474,10 @@ function createTransform(domain, range){
       return alpha * x + beta;
     }
 }
-/*var ctx = c.getContext("2d");
-ctx.moveTo(0,0);
-ctx.lineTo(200,100);
-ctx.stroke();
-*/
 
 
 </script>
 
 </body>
-
 
 </html>
