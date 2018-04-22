@@ -372,17 +372,50 @@
 
   </textarea>
 
-<p id="ga" > 2 </p>
 
 
-<canvas id = "Canvas1" width="500" height="300">
+
+<canvas id = "Canvas1" width="600" height="600">
 
 </canvas>
 
-
+<button id="button1">localdata</button>
+<button id="button2">remotedata</button>
 
 <script>
-var Niels = document.getElementById("rawdata").value;
+/*
+xmlhttp.open("POST", "KNMi_data.txt", false);
+xmlhttp.send();
+ var raw= xmlhttp.responseText; alert(raw); */
+  
+
+
+document.getElementById("button2").onclick = function() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        //  document.getElementById("demo").innerHTML =
+       this.responseText;
+//  var Nielsremote = this.responseText;
+     }
+  };
+  xhttp.open("GET", "KNMi_data_2016.txt", true);
+  xhttp.send();
+//  grafiek(Nielsremote);
+};
+/*
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          //  document.getElementById("demo").innerHTML =
+        //    this.responseText;
+ alert(this.responseText);
+       }
+    };
+    xhttp.open("GET", "KNMi_data_2016.txt", true);
+    xhttp.send();
+*/
+
 // console.log(Niels)
 //document.getElementById(2)
 // https://stackoverflow.com/questions/33155999/converting-a-csv-file-into-a-2d-array
@@ -396,24 +429,32 @@ function csvToArray (csv) {
 
 // Hard-coded for brevity, but you can set this variable with FileReader
 
-var array = csvToArray(Niels);
+function grafiek(dataset){
+var array = csvToArray(dataset);
 // var array=[[100,1000],[150,2000],[200,3000],[400,4000]];
 // console.log(array[2][1]);
 
 var ctx = document.getElementById("Canvas1").getContext("2d");
-var transform = createTransform([10,150],[-20,300]); // schaalfactor voor screen; nog niet dynamisch gezet
-console.log('Dit is de voorbeeld transformatie van ' +transform(array[2][1]));
-ctx.transform(-1, 0, 0, 1, 100, 0); // Oorsprong linkonder
+//ctx.translate(0, canvas.height);
+//ctx.scale(-1, 1);
+
+var transform = createTransform([0,50],[0,50] ); // schaalfactor voor screen; nog niet dynamisch gezet
+console.log('Dit is de voorbeeld transformatie van ' +array[364][1]/10);
+
+
+ // ctx.translate(0, canvas.height);ctx.scale(1, -1);
+
 ctx.beginPath();
 
-for (var i =1;i <array.length; i++)
-{
-  if(i>1){ctx.moveTo(i-1,transform(array[i-1][1])/10);}else{
+for (var i =2;i <array.length; i++)
+{ /*
+  if(i>1){ctx.moveTo(transform(i-1),transform(array[i-1][1])/10);}else{
     ctx.moveTo(0,transform(array[i-1][1])/10);
-  }
+  } */
   //ctx.moveTo(array[i][0],array[i][1]);
-  ctx.lineTo(i,transform(array[i][1]));
+  ctx.lineTo(transform(i),array[i][1]); //console.log(transform(array[i][1]));
   ctx.stroke();
+}
 }
 function createTransform(domain, range){
 	// domain is a two-element array of the data bounds [domain_min, domain_max]
@@ -443,9 +484,7 @@ ctx.lineTo(200,100);
 ctx.stroke();
 */
 
-xmlhttp.open("POST", "xmlhttp_info.txt", false);
-xmlhttp.send();
- var raw= xmlhttp.responseText;
+
 </script>
 
 </body>
