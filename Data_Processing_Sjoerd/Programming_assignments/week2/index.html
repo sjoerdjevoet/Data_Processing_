@@ -386,7 +386,7 @@
 <h3 id='kop'>Welkom, klik op één van beide knoppen.</h3>
 
 
-<canvas id = "Canvas1" width="600" height="600" >
+<canvas id = "Canvas1" width="1000" height="600" >
 
 </canvas>
 
@@ -436,7 +436,7 @@ var array = csvToArray(dataset);
 var ctx = document.getElementById("Canvas1").getContext("2d");
 
 // schaalfactor voor screen
-var transform = createTransform([0,50],[0,50] );
+var transform = createTransform([0,50],[50,0] );
 console.log('Dit is de voorbeeld transformatie van ' +array[364][1]/10);
 
 
