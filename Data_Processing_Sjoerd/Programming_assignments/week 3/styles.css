@@ -1,0 +1,147 @@
+svg {
+margin-left: auto;
+margin-right: auto;
+display: block;
+}
+
+.axis path,
+.axis line {
+fill: none;
+stroke: #000;
+shape-rendering: crispEdges;
+}
+
+.axis text{
+font: Courier;
+font-size: 16px;
+font-weight: bold;
+font-variant: small-caps;
+}
+
+#titel {
+font-family: times, Times New Roman, times-roman, georgia, serif;
+color: #444;
+margin: 0;
+padding: 0px 0px 6px 0px;
+font-size: 27px;
+line-height: 44px;
+letter-spacing: -2px;
+font-weight: bold;
+text-align: center;
+}
+
+.style:hover{
+fill: brown;
+}
+* {
+margin: 0;
+padding: 0;
+-moz-box-sizing: border-box;
+-o-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #333;
+}
+
+li {
+float: left;
+}
+
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+
+li a:hover:not(.active) {
+background-color: #111;
+}
+
+.active {
+background-color: #4CAF50;
+}
+
+.axis path,
+.axis line {
+fill: none;
+stroke: #000;
+shape-rendering: crispEdges;
+}
+
+.bar {
+fill: gray;
+}
+
+.bar:hover {
+fill: 	#0000FF ;
+}
+
+.x.axis path {
+display: none;
+}
+
+.d3-tip {
+line-height: 1;
+font-weight: bold;
+padding: 12px;
+background: BLACK;
+color: WHITE;
+border-radius: 2px;
+}
+
+.d3-tip:after {
+box-sizing: border-box;
+display: inline;
+font-size: 10px;
+width: 100%;
+line-height: 1;
+color: green;
+content: "\25BC";
+position: absolute;
+text-align: center;
+}
+
+.d3-tip.n:after {
+margin: -1px 0 0 0;
+top: 100%;
+left: 0;
+}
+
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #333;
+}
+
+li {
+float: left;
+}
+
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+
+li a:hover:not(.active) {
+background-color: #111;
+}
+
+.active {
+background-color: #4CAF50;
+}
+
+p { text-align: center; color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 16px; line-height: 30px; margin: 0 0 45px;  text-justify: inter-word; }
