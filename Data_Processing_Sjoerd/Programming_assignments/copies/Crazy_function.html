@@ -256,7 +256,7 @@
 	</style>
 </head>
 <title> Sacramento </title>
-<h1 id= "titel">Welome </h1>
+<h1 id= "titel">Welcome </h1>
 <body>
 <figure></figure>
 	<ul>
@@ -271,19 +271,6 @@
 <script>
 
 
-// See D3 margin convention: http://bl.ocks.org/mbostock/3019563
-
-document.getElementById("expensive").onclick = function() {
-
-grafiek(TopData);
-document.getElementById("titel").innerHTML='De gemiddelde temperatuur in 2017 de Bild.';
-}
-
-document.getElementById("cheap").onclick = function() {
-
-grafiek(BottomData);
-}
-
 function grafiek(dataset){
 var DataDisplay = dataset;
 console.log(DataDisplay);
@@ -292,13 +279,7 @@ var margin = {top: 10, right: 45, bottom: 275, left:80},
     width = 700 - margin.right - margin.left,
     height = 500 - margin.top - margin.bottom;
 
-/*------------------------------------------------------------------------------
-define SVG
-Still confused about SVG? see Chapter 3.
-The "g" element is used as a container for grouping objects. The SVG will be
-in "lightgrey" backgorund to help you visualize it.
-See https://developer.mozilla.org/en-US/docs/Web/SVG/Element/g for more info
-------------------------------------------------------------------------------*/
+
 var tip = d3.tip()
   .attr('class', 'd3-tip')
   .offset([-10, 0])
@@ -317,12 +298,7 @@ var svg = d3.select("body")
       .attr("transform","translate(" + margin.left + "," + margin.right + ")");
 
 
-/* -----------------------------------------------------------------------------
-SCALE and AXIS are two different methods of D3. See D3 API Refrence for info on
-AXIS and SCALES. See D3 API Refrence to understand the difference between
-Ordinal vs Linear scale.
-------------------------------------------------------------------------------*/
-// define x and y scales
+
 var xScale = d3.scale.ordinal()
     .rangeRoundBands([0,width], 0.2, 0.2);
 
@@ -338,25 +314,15 @@ var yAxis = d3.svg.axis()
     .scale(yScale)
     .orient("left").ticks(5);
 
-/* -----------------------------------------------------------------------------
-To understand how to import data. See D3 API refrence on CSV. Understand
-the difference between .csv, .tsv and .json files. To import a .tsv or
-.json file use d3.tsv() or d3.json(), respectively.
-------------------------------------------------------------------------------*/
+
 svg.call(tip);
-  d3.json("testveel.json", function(error, data) {
+  d3.json("Sacramento_sales_2008_.json", function(error, data) {
 
       data.forEach(function(d) {
           d.street = d.street;
           d.price = +d.price;
       });
 
-  /*----------------------------------------------------------------------------
-  Convert data if necessary. We want to make sure our price vaulues are
-  represented as integers rather than strings. Use "+" before the variable to
-  convert a string represenation of a number to an actual number. Sometimes
-  the data will be in number format, but when in doubt use "+" to avoid issues.
-  ----------------------------------------------------------------------------*/
 
 
   // sort the price values
@@ -373,10 +339,20 @@ svg.call(tip);
 	 return d3.ascending(+a.price, +b.price);
 	}).slice(0, 10);
 
+	// See D3 margin convention: http://bl.ocks.org/mbostock/3019563
+
+	document.getElementById("expensive").onclick = function() {
+
+	grafiek(TopData);
+	document.getElementById("titel").innerHTML='Welkom.';
+	}
+if (TopData == DataSet)
+	document.getElementById("cheap").onclick = function() {
+
+	grafiek(BottomData);
+	}
 
 
-  // Specify the domains of the x and y scales
-  /*xScale.domain(data.map(function(d) { return d.street; }) );*/
   xScale.domain(data.map(function(d) { return d.street; }).slice(0, 10) );
   yScale.domain([0, d3.max(DataDisplay, function(d) { return d.price; } ) ]);
 
@@ -459,14 +435,10 @@ svg.call(tip);
 
 
 			});
+}
 
+//grafiek();
 
-
-				function type(d) {
-				  d.price = +d.price;
-				  return d;
-				}
-			}
 
 </script>
 

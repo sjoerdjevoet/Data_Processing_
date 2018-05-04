@@ -1,0 +1,31 @@
+<!--Sjoerd Zagema(12195677)-->
+<!DOCTYPE html>
+<html lang='en'>
+<body>
+  <head>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/d3-queue.v3.min.js"></script>
+<script src="https://d3js.org/d3-collection.v1.min.js"></script>
+<script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+<script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+<script src="https://d3js.org/d3-request.v1.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script src="scatter.js"></script>
+<link rel="stylesheet" type="text/css" href="scatter.css">
+
+</head>
+<body>
+
+  <ul>
+  <li><a  href="index.html">Home</a></li>
+  <li><a class="active" href="scatter.html">Scatterplot</a></li>
+  </ul>
+<h1 id="titel"> Scatterplot with two dynamic y-variables and one static x-variable </h1>
+<select id="Y-axes_select" onchange=Change_Y_axe()>
+  <option value="Employement_Rate">Employement rate</option>
+  <option value="Voter_turnout">Voter turnout</option>
+</select>
+
+
+</body>
+</html>

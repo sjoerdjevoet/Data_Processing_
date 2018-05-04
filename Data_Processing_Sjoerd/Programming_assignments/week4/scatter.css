@@ -1,0 +1,127 @@
+/* Sjoerd Zagema (12195677)*/
+.border {
+    display: block;
+    width: 700px;
+    height: 110px;
+    padding: 15px;
+    border: 5px solid black;
+    background-color: white;
+    margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+}
+.d3-tip {
+line-height: 1;
+font-weight: bold;
+padding: 12px;
+background: BLACK;
+color: WHITE;
+border-radius: 2px;
+}
+
+.d3-tip:after {
+box-sizing: border-box;
+display: inline;
+font-size: 10px;
+width: 100%;
+line-height: 1;
+color: gray;
+content: "\25BC";
+position: absolute;
+text-align: center;
+}
+
+.d3-tip.n:after {
+margin: -1px 0 0 0;
+top: 100%;
+left: 0;
+}
+
+* {
+margin: 0;
+padding: 0;
+-moz-box-sizing: border-box;
+-o-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+body {
+  font: 12px sans-serif;
+  text-align: center;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.dot {
+  stroke: #000;
+}
+
+.tooltip {
+  position: absolute;
+  width: 200px;
+  height: 28px;
+  pointer-events: none;
+}
+h1 {
+		text-align: center;
+		}
+
+		h2 {
+		text-align: left;
+		}
+
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    }
+
+    li {
+    float: left;
+    }
+
+    li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+    background-color: #111;
+    }
+
+    .active {
+    background-color: #B3C8DE;
+    }
+
+    #titel {
+    font-family: times, Times New Roman, times-roman, georgia, serif;
+    color: #444;
+    margin: 0;
+    padding: 0px 0px 6px 0px;
+    font-size: 25px;
+    line-height: 44px;
+    letter-spacing: -2px;
+    font-weight: bold;
+    text-align: center;
+    }
+
+p { text-align: center; color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 16px; line-height: 30px; margin: 0 0 45px;  text-justify: inter-word; }
+
+textarea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body select { display: block; padding: 10px 70px 10px 13px !important; max-width: 100%; height: auto !important; border: 1px solid #e3e3e3; border-radius: 3px; background: url("https://image.ibb.co/iMeAJv/selectbox_arrow.png") right center no-repeat; background-color: #fff; color: #444444; font-size: 12px; line-height: 16px !important; appearance: none; /* this is must */ -webkit-appearance: none; -moz-appearance: none; } /* body select.select_box option */ body select option { padding: 0 4px; } /* for IE and Edge */ select::-ms-expand { display: none; } select:disabled::-ms-expand { background: #f60; }
