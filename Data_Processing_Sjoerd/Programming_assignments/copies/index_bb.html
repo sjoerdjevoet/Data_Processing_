@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+  <!-- A grey horizontal navbar that becomes vertical on small screens -->
+
+  <!-- A grey horizontal navbar that becomes vertical on small screens -->
+    <!--<div style='background-color:black; height:20px'>
+
+
+
+    <!--<div id="container" style="border:1px dotted blue; width: 700px; height: 475px; position: relative;"></div>-->
+
+    <!-- Black with white text -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Linked Views</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="https://raw.githubusercontent.com/Deepak5j/WebImages/master/Tiles/sun_tile.jpg">Design choices <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#!" data-toggle="modal" data-target="#exampleModalLong">Story of data <span class="sr-only">(current)</span></a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link disabled">Author Sjoerd Zagema</a>
+          </li>
+          <div c>
+
+                              <!-- Data selector -->
+                              <select autocomplete="off" class="btn btn-primary" id ='selectBox' onchange="">
+                                <option value="2017.json">2017</option>
+                                <option value="2016.json">2016</option>
+
+                              </select>
+                          </div>
+        </ul>
+        <h1 id= 'map_title'></h1>
+      </div>
+    </nav>
+
+
+
+  <div class="datamaps-legend" style='margin-top:300px;margin-left:30px;'><h3>Quality of Life Index</h3><dl><dt>HIGH: </dt><dd style="background-color:green">&nbsp;</dd><dt>LOW: </dt><dd style="background-color:red">&nbsp;</dd><dt>MEDIUM: </dt><dd style="background-color:yellow">&nbsp;</dd><dt>UNKNOWN: </dt><dd style="background-color:#707070">&nbsp;</dd></dl></div>
+
+<!--<div id="container" style="border:1px dotted blue; width: 700px; height: 475px; position: relative;"></div>-->
+
+  <div id="map"> </div>
+<div class="container .container-fluid">
+  <div class= "row">
+<div class = 'col-6' > <div id= "bar_title"> </div> </div>
+<div class = 'col-6' id = "strange"> <h1> Uitleg </h1> <p> •	Vervolgens ben ik uitgebreider gaan kijken naar de libary van datamaps. Mijn eerste stap was om een tooltip te creëren voor de landen waar data voor was, op basis van de wereldkaart.  </p> </div>
+
+</div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">The Story of the data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        •	Mij leek de data van Quality of Life interessant omdat er genoeg complexe variabelen in zitten om te gebruiken voor de opdracht. Als eerst ben ik naar de website gegaan waar deze data stond; https://www.numbeo.com/quality-of-life/rankings_by_country.jsp?title=2016. Vervolgens heb ik de data van 2016 en 2017 gekopieerd in Excel. Omdat de libary van de datamaps landen met id verwacht heb ik doormiddel van een verticale zoek in Excel de bijbehorende id’s gekoppeld. Vervolgens heb ik deze Excel laten converteren naar JSON format op deze website: https://convertio.co/nl/.
+•	Vervolgens ben ik uitgebreider gaan kijken naar de libary van datamaps. Mijn eerste stap was om een tooltip te creëren voor de landen waar data voor was, op basis van de wereldkaart.
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script // src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+  <script src="https://d3js.org/d3-queue.v3.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script src="/datamaps.world.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="/linkedview.js"></script>
+
+
+</body>
+
+</html>

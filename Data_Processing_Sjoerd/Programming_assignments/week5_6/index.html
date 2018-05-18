@@ -1,0 +1,105 @@
+<!--Sjoerd Zagema(12195677)-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Linked Views</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="https://raw.githubusercontent.com/Deepak5j/WebImages/master/Tiles/sun_tile.jpg">Design choices <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#!" data-toggle="modal" data-target="#exampleModalLong">Story of data <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="https://raw.githubusercontent.com/Deepak5j/WebImages/master/Tiles/sun_tile.jpg">Sources used <span class="sr-only">(current)</span></a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link disabled">Author Sjoerd Zagema</a>
+          </li>
+          <div c>
+
+                              <!-- Data selector -->
+                              <select autocomplete="off" class="btn btn-primary" id ='selectBox' onchange="">
+                                <option value="2017.json">2017</option>
+                                <option value="2016.json">2016</option>
+
+                              </select>
+                          </div>
+        </ul>
+        <h1 id= 'map_title'></h1>
+      </div>
+    </nav>
+
+  <div class="datamaps-legend" style='margin-top:300px;margin-left:30px;'><h3>Quality of Life Index</h3><dl><dt>HIGH: </dt><dd style="background-color:green">&nbsp;</dd><dt>LOW: </dt><dd style="background-color:red">&nbsp;</dd><dt>MEDIUM: </dt><dd style="background-color:yellow">&nbsp;</dd><dt>UNKNOWN: </dt><dd style="background-color:#707070">&nbsp;</dd></dl></div>
+
+  <div id="map"> </div>
+<div class="container .container-fluid">
+  <div class='row'>
+    <div class='col-8'>
+      <div id= "bar_title"> </div>
+  <div class = '' id='barcol'></div>
+  </div>
+    <div class='col-4'>
+<div class = 'text-center' id = "textbar"> <h2 id="newjij"> Definition of indexes </h2> <p> <strong>Quality of Life Index (QLI)</strong> is concerned with the general well-being of individuals and societies, outlining negative and positive features of life. It observes life satisfaction, including everything from physical health, family, education, employment, wealth, religious beliefs, finance and the environment. </p> <p> <strong>Safety Index</strong> is the state of being "safe"; the condition of being protected from harm or other non-desirable outcomes.</p> <p> <strong> Health Care Index </strong> is the degree to which the quality of the countries, as mentally and physically. </p> <p> <strong> The cost of living index </strong>  indicates how expensive products and services are compared to other countries. </p> </div>
+
+</div>
+
+</div>
+</div>
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Following the data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Within this map, the Quality of Life Indexes (QLI) are compared among countries. Furthermore, the variables Safety Index, Health Care Index and Cost of living Index are also compared among the countries in order to zoom in on the term "Quality of Life Index".
+
+Looking at the data in <strong>2016</strong> it has become clear that the <strong> continent NORTH AMERICA </strong> has a pretty <strong>high Quality of Life Index. </strong> On the contray, <strong> the continent ASIA</strong>, seems to have a pretty <strong>low QLI;</strong> compared to the other continents.
+In <strong>2017</strong>, <strong>Canada</strong> has a substantial <strong>loss in QLI</strong>. On the other hand, the <strong>QLI</strong> of <strong>Ireland</strong> seems to have <strong>grown</strong>.
+
+There also seems to be a relationship between a relative high QLI and the corresponding components as mentioned (Cost of living index, etc). It also seems to work the other way around; countries with a relative low QLI also seems to have low corresponding components
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <script // src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script src="/datamaps.world.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="https://d3js.org/d3-queue.v3.min.js"></script>
+    <script src="/linkedview.js"></script>
+
+</body>
+
+</html>

@@ -45,7 +45,8 @@ var yAS = d3.svg.axis()
 // the + operator makes sure that a possible string is transformed to an actual number
 svg.call(tip);
 d3.json("Sacramento_sales_2008.json", function(error, data) {
-
+var oke = data
+console.log(data);
 data.forEach(function(d) {
 d.street = d.street;
 d.price = +d.price;
