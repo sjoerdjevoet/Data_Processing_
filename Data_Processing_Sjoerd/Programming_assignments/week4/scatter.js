@@ -1,6 +1,6 @@
 /* Sjoerd Zagema (12195677)
 The dataset is obtained of the following website:http://stats.oecd.org/
-go to the theme 'regions and cities' next to 'Regional Well-Being' select the top file within this container
+go to the theme 'regions and cities', go to 'Regional Well-Being', select the top file within this container
 Within this page, I used the variables 'Country', 'Employement_Rate', 'Voter_turnout' and 'Self satisfaction'
 */
 
